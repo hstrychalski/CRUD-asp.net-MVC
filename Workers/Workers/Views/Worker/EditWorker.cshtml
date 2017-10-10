@@ -1,0 +1,91 @@
+﻿@model Workers.Models.Worker
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditWorker</title>
+</head>
+<body>
+    
+
+    <table class="col-md-8">
+        <thead style="font-weight: bold">
+            <tr>
+                <td>
+                    Id
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Age
+                </td>
+                <td>
+                    Salary
+                </td>
+        </thead>
+
+        <tbody>
+            <tr>
+                
+                    @Html.DisplayFor(x => Model.ID)
+                
+                <td>
+                    @Html.DisplayFor(x => Model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => Model.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => Model.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => Model.Salary)
+                </td>
+            </tr>
+        </tbody>
+        </table>
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.ValidationSummary()
+            @Html.HiddenFor(x=>Model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(x => Model.Name)
+                @Html.TextBoxFor(x => Model.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => Model.LastName)
+                @Html.TextBoxFor(x => Model.LastName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => Model.Age)
+                @Html.TextBoxFor(x => Model.Age)
+            </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => Model.Salary)
+                    @Html.TextBoxFor(x => Model.Salary)
+                </div>
+
+                    <div class="text-center">
+                        <input class="btn btn-success" type="submit" value="Zatwierdź nowe dane" />
+                    </div>
+
+        }
+
+
+        <div>
+        </div>
+</body>
+</html>

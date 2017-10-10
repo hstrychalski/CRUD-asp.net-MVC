@@ -1,0 +1,78 @@
+﻿@model List<Workers.Models.Worker>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayWorkers</title>
+</head>
+<body>
+   
+       
+
+     
+    
+
+    <table class="col-md-8">
+        <thead style="font-weight: bold">
+            <tr>
+                <td>
+                    Id
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Age
+                </td>
+                <td>
+                    Salary
+                </td>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Salary)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Usuń", "RemoveWorker", new { workerId = item.ID }, null)
+                    </td>
+                        
+                    <td>
+                        @Html.ActionLink("Edytuj", "EditWorker", new { workerId = item.ID }, null)
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    
+    @Html.ActionLink("Dodaj nowego pracownika","AddWorker")
+
+    <div> 
+    </div>
+</body>
+</html>
